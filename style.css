@@ -1,0 +1,139 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* запрет горизонтального скролла */
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* === БАЗА ПОД ТЕЛЕФОН === */
+body {
+  font-size: 17px;          /* минимум 16, лучше 17-18 */
+  line-height: 1.6;
+  padding: 0 20px;          /* боковые отступы, чтобы не липло к краям */
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%; /* Safari не будет увеличивать текст сам */
+  background-color: #d7dff0;
+}
+
+/* === КНОПКИ И ССЫЛКИ === */
+button, .btn {
+  min-height: 48px;         /* палец должен попадать */
+  min-width: 48px;
+  padding: 14px 24px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* убирает серую вспышку при тапе в Safari */
+}
+
+/* === КАРТИНКИ === */
+img {
+  border-radius: 0; /* убери, если хочешь скруглённые */
+}
+
+ @font-face {
+  font-family: 'Good Vibes Pro';
+  src: url('font/GoodVibesPro.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+:root {
+  --font-script: 'Good Vibes Pro', cursive;   /* каллиграфия */
+  --font-serif: 'Cormorant Garamond', serif; /* текст */
+
+}
+
+body {
+  font-family: var(--font-serif);
+  font-size: 18px;
+}
+
+.invite__title {
+  font-family: var(--font-script);
+  font-size: 28px;
+  line-height: 1.4;
+  text-align: center;
+  color: rgb(129, 143, 224);
+  padding-top: 50px;
+}
+
+.invite__hint {
+  font-family: var(--font-script);
+  font-size: 30px;
+  text-align: center;
+  color: rgb(129, 143, 224);
+}
+
+.invite__photo {
+  width: 100%;
+  max-width: 240px;       /* чтобы на большом экране не раздулось */
+  aspect-ratio: 1 / 1;      /* ← делаем квадрат */
+  object-fit: cover;        /* ← обрезаем лишнее, чтобы заполнить квадрат */
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 0 0 rgba(170, 179, 228, 0.7);
+  animation: photoGlow 3s ease-in-out infinite;
+}
+
+@keyframes photoGlow {
+  0%   { box-shadow: 0 0 0 0    rgba(170, 179, 228, 0.7); }
+  70%  { box-shadow: 0 0 0 15px rgba(170, 179, 228, 0);   }
+  100% { box-shadow: 0 0 0 0    rgba(170, 179, 228, 0);   }
+}
+
+.invite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;      
+  margin: 0 auto;        
+  padding: 0 16px;
+  padding-top: 170px;
+}
+
+.frame {
+  position: fixed;
+  inset: 0;                         /* растянуть на весь экран: top/right/bottom/left = 0 */
+  background-image: url('img/floral-frame.png');
+  background-size: cover;         /* вся рамка видна целиком */
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;             /* КРИТИЧНО: клики проходят сквозь рамку */
+  z-index: 10;
+  animation: framePulse 3s ease-in-out infinite;
+}
+
+@keyframes framePulse {
+  0%, 100% { transform: scale(1.05);  }
+  50%      { transform: scale(1);  }
+}
