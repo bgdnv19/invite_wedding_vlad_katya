@@ -132,10 +132,5 @@ body {
   background-repeat: no-repeat;
   pointer-events: none;             /* КРИТИЧНО: клики проходят сквозь рамку */
   z-index: 10;
-  animation: framePulse 3s ease-in-out infinite;
 }
 
-@keyframes framePulse {
-  0%, 100% { transform: scale(1.5);  }
-  50%      { transform: scale(1.3);  }
-}
