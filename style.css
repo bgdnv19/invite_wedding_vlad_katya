@@ -163,6 +163,7 @@ body {
 @media (min-width: 414px) {
   .invite {
     max-width: 360px;
+    top: 200px;
   }
   .invite__title {
     font-size: 30px;
