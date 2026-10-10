@@ -77,7 +77,7 @@ body {
 
 .invite__title {
   font-family: var(--font-script);
-  font-size: 28px;
+  font-size: clamp(22px, 7vw, 32px);
   line-height: 1.4;
   text-align: center;
   color: rgb(129, 143, 224);
@@ -86,14 +86,14 @@ body {
 
 .invite__hint {
   font-family: var(--font-script);
-  font-size: 30px;
+  font-size: clamp(18px, 5vw, 24px);
   text-align: center;
   color: rgb(129, 143, 224);
   z-index: 11;
 }
 
 .invite__photo {
-  width: 100%;
+  width: 70vw;
   max-width: 140px;       /* чтобы на большом экране не раздулось */
   aspect-ratio: 1 / 1;      /* ← делаем квадрат */
   object-fit: cover;        /* ← обрезаем лишнее, чтобы заполнить квадрат */
@@ -117,10 +117,11 @@ body {
   gap: 24px;
   text-align: center;
   width: 100%;
-  max-width: 320px;      
+  max-width: 340px;      
   margin: 0 auto;        
-  padding: 0 16px;
-  padding-top: 200px;
+  padding: 0 20px;
+  padding-top: clamp(80px, 20vh, 140px);  /* зависит от высоты экрана */
+  gap: clamp(16px, 4vh, 28px);
 }
 
 .frame {
@@ -135,3 +136,35 @@ body {
   z-index: 10;
 }
 
+
+
+
+
+
+
+/* Очень маленькие экраны (iPhone SE 1st gen) */
+@media (max-width: 360px) {
+  .invite {
+    padding-top: 60px;
+    gap: 14px;
+  }
+  .invite__title {
+    font-size: 20px;
+  }
+  .invite__photo {
+    width: 65vw;
+  }
+  .invite__hint {
+    font-size: 16px;
+  }
+}
+
+/* Большие телефоны (iPhone Pro Max) */
+@media (min-width: 414px) {
+  .invite {
+    max-width: 360px;
+  }
+  .invite__title {
+    font-size: 30px;
+  }
+}

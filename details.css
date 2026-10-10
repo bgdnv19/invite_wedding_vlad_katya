@@ -20,11 +20,12 @@ body {
 }
 
 .music-btn{
-   position: fixed;
-    top: 20px;
-  right: 20px;
-  width: 48px;
-  height: 48px;
+  position: fixed;
+  width: clamp(40px, 12vw, 52px);
+  height: clamp(40px, 12vw, 52px);
+  font-size: clamp(18px, 5vw, 24px);
+  top: 16px;
+  right: 16px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.8);
   border: none;
@@ -33,7 +34,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   color: rgb(170, 179, 228);
   transition: transform 0.2s;
    animation: photoGlow 1.5s ease-in-out infinite;
@@ -44,3 +44,33 @@ body {
   70%  { box-shadow: 0 0 0 15px rgba(170, 179, 228, 0);   }
   100% { box-shadow: 0 0 0 0    rgba(170, 179, 228, 0);   }
 } 
+
+
+
+
+/* Очень маленькие экраны (iPhone SE 1st gen) */
+@media (max-width: 360px) {
+  .invite {
+    padding-top: 60px;
+    gap: 14px;
+  }
+  .invite__title {
+    font-size: 20px;
+  }
+  .invite__photo {
+    width: 65vw;
+  }
+  .invite__hint {
+    font-size: 16px;
+  }
+}
+
+/* Большие телефоны (iPhone Pro Max) */
+@media (min-width: 414px) {
+  .invite {
+    max-width: 360px;
+  }
+  .invite__title {
+    font-size: 30px;
+  }
+}
